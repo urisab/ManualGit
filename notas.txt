@@ -1,0 +1,68 @@
+APUNTES DE Git
+
+$ pwd	#point worked directory
+
+verificar correcta instalacion de git (comando)
+$ git --version
+
+CONFIGURACION DE GIT (windows)
+git requiere que establiezcas tu username vinculado a un correo electronico
+
+	"Alexis Tercero" alexistercero55@gmail.com
+
+$ git config --global user.name "Alexis Tercero"
+$ git config --global user.email alexistercero55@gmail.com
+
+__de tal manera git sabe quien soy y cual es mi correo.
+
+
+TEORIA (fundamentos de git)
+objetivo: crear versiones de un ARCHIVO o PROYECTO(carpeta con archivos).
+Para indicar a git el proyecto a versionalizar
+-> abre gitbash en el directorio donde se aloja el proyecto
+-> $ git init 
+	se crean:
+	-> staging #espacio en ram
+	-> repositorio #nombrado como .GIT
+		-> master #se crea una rama llamada master
+		se ha creado una carpeta .git use
+		-> $ ls -la #mostrar elemntos de un directorio
+	se asigna a cada archivo dentro del proyecto el ESTADO:
+	-> untracked #sin seguimiento
+
+Para que nuestra version llegue al repositorio se hacen 2 pasos:
+-> debe estar en staging (comando)
+	$ git add filename.extfile
+	le asigna al archivo el ESTADO:
+	-> tracked
+-> pasa al repositorio (comando)
+	$ git commit -m "algun mensaje descriotivo de la version"
+	un commit es una version del proyecto (lo que esta en staging)
+
+Ramas (git trabaja por ramas)
+-> master #rama de la version oficial
+
+Revisar el estado actual del proyecto (estado de archivos)
+-> $ git status
+
+Viajar entre versiones de un proyecto
+para listar las diferentes versiones use
+-> $ git log --oneline #listara versiones por id y breve descripcion
+infromacion mas detallada de cada commit
+-> $ git log
+para moverse entre versiones usamos
+-> $ git checkout idcommit # idcommit es el numero en amarillo de $ git log --oneline
+	Para regresar al head
+	-> $ git checkout master
+
+Mostrar historial de versiones
+-> git show
+
+Agregar mas de un documento a repositorio
+-> git add . #se agregan al stagin todos los archivos modificados
+-> git commit -m "comentario global para el comado anterior"
+
+Para regresar el proyecto a una version anterior (elimina commits anteriores)
+-> git reset idcommit --hard
+
+---------------------------------------------------------------------------------
